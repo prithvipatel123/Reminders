@@ -1,0 +1,14 @@
+{%extends 'base_layout.html'%}
+
+{%block content%}
+<div class="edit-note">
+    <form class = "edit-form" action = "{%url 'notes:edit' form.instance.pk %}" method="post">
+        {%csrf_token%}
+        <div id = "editform">
+        {{form}}
+        </div>
+        <input type="submit" value="Edit">
+    </form>
+</div>    
+
+{%endblock%}

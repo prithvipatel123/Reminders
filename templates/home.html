@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <link rel= "stylesheet" href = "{% static 'home.css' %}">
+        {%if user.is_authenticated%}    <!--sends to notes page if already logged in-->
+        <meta http-equiv="refresh" content="0; URL={%url 'notes:sticky'%}" />
+    </head>
+
+    <body>
+        {%else%}
+        <ul class="sign-up-or-login">
+            <li id = "signup-item">
+                <h1>Need to sign up?</h1>
+                <form class="signup-main" action ="{%url 'accounts:signup'%}">
+                    <input type="submit" value="Register">
+                </form>
+            </li>
+
+            <li id = "login-item">
+                <h2>Have and account?</h2>
+                <form class="login-main" action ="{%url 'accounts:login'%}">
+                    <input type="submit" value="Login">
+                </form>
+            </li>
+        </ul>
+        {%endif%}
+    </body>
+</html>
+
+<!--MAKE THE HOMEPAGE SO IF USER IS AUTHENTICATED YOU GO TO THEIR NOTES 
+    BUT IF ITS NOT, HAVE SOME FRONT PAGE WITH A LOGIN BUTTON ON A STICKYNOTE-->

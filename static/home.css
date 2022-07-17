@@ -1,0 +1,88 @@
+:root{
+    --blackFont: #0d0d0d;
+    --backColor:rgb(220, 203, 178);
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image: url("notebook.jpeg");
+    background-size: 70%;
+}
+
+h2 {
+font-weight: bold;
+font-size: 2rem;
+}
+
+p {
+font-size: 1rem;
+font-weight: normal;
+}
+
+ul,li{
+list-style:none;
+margin:4em;
+}
+
+ul{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+margin-top: 10%;
+}
+
+
+h1{
+    transform: rotate(-6deg);
+    margin-bottom: 5px;
+}
+h2{
+    transform: rotate(6deg);
+    margin-bottom: 5px; 
+    margin-left: 20px;
+}
+.signup-main{
+    text-decoration:none;
+    color:#000;
+    background:#ffc;
+    display:block;
+    height:15em;
+    width:15em;
+    padding:1em;
+    box-shadow: -7px 7px 7px rgba(33,33,33,.7);
+    margin-top: 5px;
+    transform: rotate(-6deg);
+}
+.login-main{
+    text-decoration:none;
+    color:#000;
+    background:#ffc;
+    display:block;
+    height:15em;
+    width:15em;
+    padding:1em;
+    box-shadow: 7px 7px 7px  rgba(33,33,33,.7);
+    margin-top: 5px;
+    transform: rotate(6deg);
+}
+
+input[type=submit]{
+    outline: 2px solid black;
+    background: transparent;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 35% 30%;
+    cursor: pointer;
+}
+input[type=submit]:hover{
+    box-shadow: 10px 5px 5px black;
+    transition-delay: 30ms;
+    transition-timing-function: ease-in-out;
+
+
+}

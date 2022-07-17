@@ -1,0 +1,286 @@
+:root{
+    --blackFont: #0d0d0d;
+    --backColor:rgb(220, 203, 178);
+}
+/*BASE LAYOUT*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+}
+
+body{
+    background-color:#fef9f8;
+}
+/*EDIT NAV BAR*/
+.main-nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: var(--backColor);
+}
+
+#user{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li{
+    list-style: none;
+}
+.nav-links a{
+    color: var(--blackFont);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.nav-logout{
+    background: transparent;
+    border: black;
+    color: var(--blackFont);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+#nav-access{
+    text-transform: uppercase;
+    font-size: 30px;
+}
+/*ANIMATION WHEN HOVERING OVER NAV*/
+.nav-links li:hover{
+    border-bottom: 2px solid black;
+}
+.nav-logout:hover{
+    border-bottom: 2px solid black;
+}
+
+/*for when the screen is minimized or on mobile*/
+.burger{
+    display: none;
+}
+.burger div{
+    width: 25px;
+    height: 2px;
+    background-color: var(--blackFont);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+@media screen and (max-width:1024px) {
+    .nav-links{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: var(--backColor);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+
+    }
+    .burger{
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.nav-links-active{
+    transform: translateX(0%);
+    
+}
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+
+    }
+    
+}
+.turnburger .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.turnburger .line2{
+    opacity: 0;
+}
+.turnburger .line3{
+    transform: rotate(45deg) translate(-5px,-6px);  
+}
+
+.content{
+    max-width: 960px;
+    margin: 0 auto;
+}
+.content h1{
+    text-align: center;
+    margin: 50px auto;
+    font-size: 2.4em;  
+}
+
+/*========================================*/
+/*STYLE NOTES*/
+
+.stickynotes ul,.stickynote li{
+    list-style:none;
+    }
+
+.stickynotes ul{
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 200px);
+    padding: 1em;
+}
+
+.stickynote{
+    text-decoration:none;
+    color:#000;
+    background:#ffc;
+    display:block;
+    max-width: 30ch;
+    max-height: 30ch;
+    min-height: 10em;
+    min-width: 10em;
+    box-shadow: 5px 5px 5px rgba(33,33,33,.7);
+    margin: 10px 10px;
+    transition-timing-function: ease-in-out;   
+}
+.stickynotes ul, .stickynote li{
+    margin:1em;
+}
+.stickynote>li{
+    display: block;
+    margin-top: 0%;
+    font-weight: normal; 
+    grid-template-columns: repeat(auto-fill, 100px);
+    resize: none;
+    word-wrap: break-word;
+    font-size: 17px;
+    height: fill;
+    width: fill
+}
+.stickynote:hover{
+
+    box-shadow: 0px 0px 10px 5px rgba(33,33,33,.7);
+}
+
+.stickynote-edit input, .stickynote-delete input{
+    outline: 1.5px solid black;
+    background: transparent;
+    border: none;
+    color: black;
+    padding: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 1px;
+}
+.stickynote-tinker li{
+    display: inline-block;
+}
+.stickynote-delete{
+    padding-left: 95%;
+}
+
+
+/*========================================*/
+/*CREATE/EDIT A NOTE STYLING*/
+.new-item ul{
+    list-style: none;
+}
+.new-item input{
+    outline: 2px solid black;
+    background: transparent;
+    border: none;
+    color: black;
+    padding: 10px 10px;
+    margin: 10% 10%;
+    cursor: pointer;
+    padding-left: 10%;
+
+}
+.create-note, .edit-note{
+    text-align: center;
+    padding: 3% 5% 3% 0%;
+    box-sizing: border-box;
+    width: fill;
+    height: fill;
+    border: 2px solid black;
+
+}
+.note-form input, .edit-note input{
+    outline: 2px solid black;
+    background: transparent;
+    border: none;
+    color: black;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+
+/*========================================*/
+/*LOGIN AND SIGNUPN FORMS*/
+
+.site-form{
+    margin-top: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 20px;
+}
+.site-form input, .site-form textarea{
+    display: block;
+    margin: 10px 0 0 0;
+    padding: 5px;
+}
+
+.helptext, .helptext ul{
+    margin: 0 auto 10px;
+    color: rgb(97, 94, 94);
+    font-size: 0.9em;
+    display: block;
+    list-style: none;
+}
+/*Text to move between signup/login*/
+
+.redirect-signup, .redirect-login{
+    text-align: center;
+}
+.redirect-signup p, .redirect-login p{
+    font-size: 16px;
+    padding-bottom: 3px;
+}
+.redirect-signup input, .redirect-login input{
+    font-size: 15px;
+}

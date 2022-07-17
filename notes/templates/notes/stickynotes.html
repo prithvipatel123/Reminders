@@ -1,0 +1,43 @@
+{%extends 'base_layout.html'%}
+
+{%block new-item%}
+<form action="{%url 'notes:create'%}">  
+    <input type="submit" value = "+New Note">  
+</form>
+ 
+{%endblock%}
+
+{%block content%}
+<div class = "stickynotes">
+    <ul>
+        {%for stickynote in stickynotes%} 
+        <div class = "stickynote">  
+            <div class = "stickynote-tinker">
+            <li>
+
+                <div class = "stickynote-edit">
+                    <form action="{%url 'notes:edit' stickynote.pk %}">  
+                        <input type="submit" value = "edit">  
+                    </form>
+                </div>
+
+            </li>
+            <li>
+
+                <div class = "stickynote-delete">
+                    <form action="{%url 'notes:delete' stickynote.pk %}">  
+                        <input type="submit" value = "delete">  
+                    </form>
+                </div>
+
+            </li>
+            </div>
+
+            <li>
+                {{stickynote.body}}
+            </li>
+        </div>
+        {%endfor%}
+    <ul>
+</div>
+{%endblock%}

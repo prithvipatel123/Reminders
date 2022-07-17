@@ -1,0 +1,14 @@
+{%extends 'base_layout.html'%}
+
+{%block content%}
+<div class="update-note">
+    <form class = "ud-note-form" action = "" method="post" encypt = "multipart/form-data">
+        {%csrf_token%}
+        <div id = "up-noteform">
+        {{form}}
+        </div>
+        <input type="submit" value="Update">
+    </form>
+</div>    
+
+{%endblock%}

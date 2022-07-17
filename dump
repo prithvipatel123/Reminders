@@ -1,0 +1,9 @@
+<div class="create-note">
+    <form class = "note-form" action = "{%url 'notes:create' %}" method="post">
+        {%csrf_token%}
+        <div id = "noteform">
+        {{form}}
+        </div>
+    <input type="submit" value="Create">
+    </form>
+</div>   

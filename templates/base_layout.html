@@ -1,0 +1,66 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        {%block metas%}
+        <!--possible extra met things-->
+        {%endblock%}
+        <meta charset="utf-8">
+        <title>Quick Notes</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Work+Sans:ital,wght@0,400;1,200&display=swap" rel="stylesheet">
+        <link rel= "stylesheet" href = "{% static 'styles.css' %}">
+        
+        {%block scrlinks%}
+        <!--possible extra scripts and links-->
+        {%endblock%}   
+    </head>
+    
+    <body>
+        <header class = "wrapper">
+
+        <nav class = "main-nav">
+            {%if user.is_authenticated%}
+            <div id = "user">
+            <h2>{{request.user.username}}'s StickyNotes </h2>
+            </div>
+            <div class = "new-item">
+            <ul>
+                <li>                 
+                        {%block new-item%}
+                        {%endblock%}     
+                </li>
+            </ul>
+            </div>
+            <ul class = "nav-links">
+                <li><a href = "{%url 'notes:sticky'%}">Sticky Notes</a></li>
+                <li><a href = '#'>Planner</a></li>
+                <form id="logout-link", action = "{%url 'accounts:logout'%}", method=post>
+                    {%csrf_token%}
+                    <button type="submit" class ="nav-logout" >Logout</button>
+                    </div>
+                </form> 
+                {% else %}
+                <h3 id="nav-access">Account Access</h3>
+                {% endif %}
+
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+
+
+    </wrapper>
+
+        <div class = "content">
+            {%block content%}
+            <!--throw in your non base stuff in here-->
+            {%endblock%}
+        </div>
+
+        <script src = "/static/app.js"></script>
+    </body>
+
+</html>
